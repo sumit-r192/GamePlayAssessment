@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get the application up and running, follow the following steps
 
-Things you may want to cover:
+* Clone the repository
 
-* Ruby version
+* Use Ruby version 2.6.5 or download if you don't have
 
-* System dependencies
+* Bundle (bundle)
 
-* Configuration
+* Database creation (run 'rake db:create')
 
-* Database creation
+* Database table initialization (run 'rake db:migrate')
 
-* Database initialization
+* Initialize webpack (run 'yarn install')
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run server (run 'rails s')
