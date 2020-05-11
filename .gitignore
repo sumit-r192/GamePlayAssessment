@@ -36,7 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 
 app/channels/*
-app/helpers/*
 app/jobs/*
 app/mailers/*
 app/views/layouts/mailer.html.erb

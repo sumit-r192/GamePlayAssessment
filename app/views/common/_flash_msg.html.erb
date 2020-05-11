@@ -1,0 +1,8 @@
+<% flash.each do |name, msg| %>
+  <% unless msg.blank? %>
+    <div class="alert alert-<%= flash_class(name.to_sym) %>">
+      <%= msg %>
+      <a href="#" data-dismiss="alert" class="close">×</a>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,58 @@
+<script>
+  var picked_image_urls = <%= raw @data.values.to_json %>;
+  var img = document.getElementById("img");
+
+  window.onload = function () {
+    var seconds = 10
+    var display = document.querySelector('#time');
+    setTimer(seconds, display);
+  };
+
+  function setTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+
+    setInterval(function () {
+      seconds = parseInt(timer % 60, 10);
+
+      display.textContent = seconds;
+
+      img.setAttribute('src', picked_image_urls[seconds-1])
+
+      if (--timer < 1) {
+        timer = duration;
+      }
+    }, 1000);
+  }
+
+  function grabValues() {
+    var tick = document.getElementById("time").innerHTML;
+    var picked_img = document.getElementById("img").getAttribute('src');
+    var xhttp = new XMLHttpRequest();
+
+    update_table(tick, picked_img);
+
+    xhttp.open("POST", "/games?tick=" + tick + "&image_url=" + picked_img, true);
+    xhttp.send();
+  }
+
+  function update_table(tick, picked_img) {
+    var table = document.getElementsByTagName("table")[0];
+    var table_body = document.getElementsByTagName("tbody")[0];
+    var tr_tag = document.createElement('tr');
+
+    // First td tag
+    var td_tag = document.createElement('td')
+    td_tag.innerHTML = tick;
+    tr_tag.append(td_tag);
+
+    // Second td tag
+    td_tag = document.createElement('td')
+    img_tag = document.createElement('img')
+    img_tag.setAttribute('src', picked_img)
+    td_tag.append(img_tag);
+
+    tr_tag.append(td_tag);
+    table_body.prepend(tr_tag);
+    table.classList.remove("hide");
+  }
+</script> 

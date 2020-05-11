@@ -1,0 +1,30 @@
+<div class="row col-md-12 game-page">
+  <div class="col-md-6 play">
+    <h1 id="time">10</h1>
+
+    <img src="<%= @data[10] %>", id='img'>
+
+    <button id="play-n-pick" class="btn btn-primary form-control" onclick="grabValues()">Play</button>
+  </div>
+
+  <div class="col-md-6">
+    <%= link_to 'Start Again', root_path, class: 'btn btn-primary form-control start-again' %>
+
+    <table class="<%= check_visibility_class %>">
+      <thead>
+        <td>Picked Tick</td>
+        <td>Picked Image</td>
+      </thead>
+      <tbody>
+        <% @game_plays.each do |play| %>
+          <tr>
+            <td><%= play.tick %></td>
+            <td><%= image_tag play.image_url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render 'game_script' %>

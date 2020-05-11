@@ -1,0 +1,14 @@
+<div class="col-md-4 offset-md-4 load-game">
+  <h1>Select multiple Images</h1>
+
+  <%= form_for @game, url: upload_games_path do |f| %>
+    <%= f.file_field :images, multiple: true, onChange: 'submitForm()' %>
+    <%= f.submit 'Upload', class: 'submit-form-btn hide' %>
+  <% end %>
+</div>
+
+<script>  
+  function submitForm() {
+    document.getElementsByClassName('submit-form-btn')[0].click();
+  }
+</script>

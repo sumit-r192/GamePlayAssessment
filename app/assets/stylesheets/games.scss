@@ -1,0 +1,40 @@
+.hide {
+  display: none;
+}
+
+.load-game {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.game-page {
+  margin-top: 40px;
+  
+  .play {
+    border-right: 2px dashed;
+  }
+
+  #time {
+    text-align: center;
+  }
+
+  #img {
+    width: 100%;
+    max-height: 210px;
+  }
+
+  #play-n-pick, .start-again {
+    margin: 5px 0px;
+  }
+
+  table {
+    td {
+      border: 1px solid;
+      text-align:  center
+    }
+    tbody td img {
+      width: 100% !important;
+      max-height: 210px;
+    }
+  }
+}
